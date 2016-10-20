@@ -23,7 +23,6 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
 
@@ -77,3 +76,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+squash.sh
