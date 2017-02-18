@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bin2c", "bin2c.vcxproj", "{789615F1-7076-49CB-B69F-B603D164B970}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		PGOInstrument|x64 = PGOInstrument|x64
+		PGOInstrument|x86 = PGOInstrument|x86
+		PGOOptimize|x64 = PGOOptimize|x64
+		PGOOptimize|x86 = PGOOptimize|x86
+		PGOUpdate|x64 = PGOUpdate|x64
+		PGOUpdate|x86 = PGOUpdate|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{789615F1-7076-49CB-B69F-B603D164B970}.Debug|x64.ActiveCfg = Debug|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.Debug|x64.Build.0 = Debug|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.Debug|x86.ActiveCfg = Debug|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.Debug|x86.Build.0 = Debug|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOInstrument|x64.ActiveCfg = PGOInstrument|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOInstrument|x64.Build.0 = PGOInstrument|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOInstrument|x86.ActiveCfg = PGOInstrument|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOInstrument|x86.Build.0 = PGOInstrument|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOOptimize|x64.ActiveCfg = PGOOptimize|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOOptimize|x64.Build.0 = PGOOptimize|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOOptimize|x86.ActiveCfg = PGOOptimize|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOOptimize|x86.Build.0 = PGOOptimize|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOUpdate|x64.ActiveCfg = PGOUpdate|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOUpdate|x64.Build.0 = PGOUpdate|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOUpdate|x86.ActiveCfg = PGOUpdate|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.PGOUpdate|x86.Build.0 = PGOUpdate|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.Release|x64.ActiveCfg = Release|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.Release|x64.Build.0 = Release|x64
+		{789615F1-7076-49CB-B69F-B603D164B970}.Release|x86.ActiveCfg = Release|Win32
+		{789615F1-7076-49CB-B69F-B603D164B970}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,24 @@
+/*
+	libunicodemacros
+
+	Note: This is to help make the macros in this be wide strings.
+*/
+
+#ifndef LIBUNICODEMACROS_DEFINED
+#define LIBUNICODEMACROS_DEFINED
+#ifdef UNICODE
+#define CONCAT2(X, Y) X##Y
+#define CONCAT(X, Y) CONCAT2(X, Y)
+#define STRINGIFY2(X) #X
+#define STRINGIFY(X) STRINGIFY2(X)
+#define WIDEN(X) CONCAT(L, STRINGIFY(X))
+#define make_wide(X) WIDEN(X)
+#define __TTIME__ make_wide(__TIME__)
+#define __TDATE__ make_wide(__DATE__)
+#define __TFILE__ make_wide(__FILE__)
+#else
+#define __TTIME__ __TIME__
+#define __TDATE__ __DATE__
+#define __TFILE__ __FILE__
+#endif
+#endif

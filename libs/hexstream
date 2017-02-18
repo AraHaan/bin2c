@@ -1,0 +1,411 @@
+/*
+	hexstream
+
+	Header & Implementation for the hexstream class.
+*/
+
+#ifndef HEXSTREAM_DEFINED
+#define HEXSTREAM_DEFINED
+#include <sstream>
+#include <iomanip>
+
+namespace AraHaan {
+    class basic_hexstream {
+    private:
+        std::stringstream base_hexstream;
+        bool data_cleared, append0x, writehexseparater, use_tabs;
+        int max_array, current_array, file_size;
+        unsigned char* mem_block;
+    public:
+        /*
+            Adds a character to the hexstream.
+
+            Note: This automatically appends an 0x
+                to beginning of the character represented
+                in hex form if the append0x arg is set to true.
+                Also the separater which is a comma and a space between
+                each hex is optional but by default is set to true.
+                This function and this hexstream object is a must
+                have for hex editors. Also the character must be in int form.
+        */
+        void AddCharacter(int character) {
+            data_cleared = false;
+            if (append0x) {
+                if (writehexseparater) {
+                    base_hexstream << "0x" << std::uppercase << std::setfill('0') <<
+                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << ", ";
+                } else {
+                    base_hexstream << "0x" << std::uppercase << std::setfill('0') <<
+                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
+                }
+            } else {
+                if (writehexseparater) {
+                    base_hexstream << std::uppercase << std::setfill('0') <<
+                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << ", ";
+                } else {
+                    base_hexstream << std::uppercase << std::setfill('0') <<
+                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
+                }
+            }
+        }
+        /*
+            Sets if the user wants to append "0x" and write an ", "
+            on every character added to the hexstream.
+        */
+        void setoptions(bool append_0x, bool writehexseparator, int maxarray,
+                        int filesize, bool usetabs, unsigned char* memblock) {
+            append0x = append_0x;
+            writehexseparater = writehexseparator;
+            max_array = maxarray;
+            file_size = filesize;
+            use_tabs = usetabs;
+            mem_block = memblock;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        int get_currentarray() {
+            return current_array;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        void set_currentarray(int currentarray) {
+            current_array = currentarray;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        bool get_tabs() {
+            return use_tabs;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        int get_filesize() {
+            return file_size;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        unsigned char* get_memblock() {
+            return mem_block;
+        }
+        /*
+            Gets The hexstream data as a string.
+        */
+        const std::string str() {
+            return base_hexstream.str();
+        }
+        /*
+            Sets The hexstream data.
+        */
+        const std::string str(std::string info) {
+            base_hexstream.str(info);
+            return base_hexstream.str();
+        }
+        /*
+            Clears out everything in the hexstream data.
+        */
+        void clear() {
+            data_cleared = true;
+            base_hexstream.clear();
+            base_hexstream.str("");
+        }
+        friend basic_hexstream& operator<< (basic_hexstream& Hexstream, std::ifstream& fileStream) {
+            std::string data;
+            bool use_tabs = Hexstream.get_tabs();
+            for (unsigned int l = 0; l < Hexstream.get_filesize(); l++) {
+                if (Hexstream.get_currentarray() == 0) {
+                    if (use_tabs) {
+                        data += '\t';
+                    } else {
+                        data += "    ";
+                    }
+                }
+                unsigned char* memblock = Hexstream.get_memblock();
+                int ch = static_cast<int>(memblock[l]);
+                Hexstream.AddCharacter(ch);
+                data += Hexstream.str();
+                Hexstream.clear();
+                int current_array = Hexstream.get_currentarray();
+                Hexstream.set_currentarray(++current_array);
+                if (Hexstream.get_currentarray() % 16 == 0) {
+                    if (use_tabs) {
+                        data = data.replace(data.length() - 1, 1, "\n\t");
+                    } else {
+                        data = data.replace(data.length() -1, 1, "\n    ");
+                    }
+                }
+            }
+            Hexstream.str(data);
+            return Hexstream;
+        }
+        friend basic_hexstream& operator<< (basic_hexstream& Hexstream, std::fstream& fileStream) {
+            std::string data;
+            bool use_tabs = Hexstream.get_tabs();
+            for (unsigned int l = 0; l < Hexstream.get_filesize(); l++) {
+                if (Hexstream.get_currentarray() == 0) {
+                    if (use_tabs) {
+                        data += '\t';
+                    } else {
+                        data += "    ";
+                    }
+                }
+                unsigned char* memblock = Hexstream.get_memblock();
+                int ch = static_cast<int>(memblock[l]);
+                Hexstream.AddCharacter(ch);
+                data += Hexstream.str();
+                Hexstream.clear();
+                int current_array = Hexstream.get_currentarray();
+                Hexstream.set_currentarray(++current_array);
+                if (Hexstream.get_currentarray() % 16 == 0) {
+                    if (use_tabs) {
+                        data = data.replace(data.length() - 1, 1, "\n\t");
+                    } else {
+                        data = data.replace(data.length() -1, 1, "\n    ");
+                    }
+                }
+            }
+            Hexstream.str(data);
+            return Hexstream;
+        }
+        friend basic_hexstream& operator<< (basic_hexstream& Hexstream, int character) {
+            Hexstream.AddCharacter(character);
+            return Hexstream;
+        }
+        friend std::string& operator>> (basic_hexstream& Hexstream, std::string& String) {
+            String += Hexstream.str();
+            // Should I clear this stream? hmm
+            Hexstream.clear();
+            return String;
+        }
+        basic_hexstream(bool append_0x, bool writehexseparator,
+                        int maxarray,
+                        int filesize, bool usetabs,
+                        unsigned char* memblock) {
+            setoptions(append_0x, writehexseparator, maxarray, filesize, usetabs, memblock);
+            current_array = 0;
+        }
+        basic_hexstream() {
+        }
+        ~basic_hexstream() {
+            // clears the data just in case.
+            // This makes clearing this manually optional.
+            if(!data_cleared) {
+                clear();
+            }
+        }
+    };
+    class basic_whexstream {
+    private:
+        std::wstringstream base_whexstream;
+        bool data_cleared, append0x, writehexseparater, use_tabs;
+        int max_array, current_array, file_size;
+        unsigned char* mem_block;
+    public:
+        /*
+            Adds a character to the hexstream.
+
+            Note: This automatically appends an 0x
+                to beginning of the character represented
+                in hex form if the append0x arg is set to true.
+                Also the separater which is a comma and a space between
+                each hex is optional but by default is set to true.
+                This function and this hexstream object is a must
+                have for hex editors. Also the character must be in int form.
+        */
+        void AddCharacter(int character) {
+            data_cleared = false;
+            if (append0x) {
+                if (writehexseparater) {
+                    base_whexstream << L"0x" << std::uppercase << std::setfill(L'0') <<
+                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << L", ";
+                } else {
+                    base_whexstream << L"0x" << std::uppercase << std::setfill(L'0') <<
+                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
+                }
+            } else {
+                if (writehexseparater) {
+                    base_whexstream << std::uppercase << std::setfill(L'0') <<
+                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << L", ";
+                } else {
+                    base_whexstream << std::uppercase << std::setfill(L'0') <<
+                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
+                }
+            }
+        }
+        /*
+            Sets if the user wants to append "0x" and write an ", "
+            on every character added to the hexstream.
+        */
+        void setoptions(bool append_0x, bool writehexseparator, int maxarray,
+                        int filesize, bool usetabs, unsigned char* memblock) {
+            append0x = append_0x;
+            writehexseparater = writehexseparator;
+            max_array = maxarray;
+            file_size = filesize;
+            use_tabs = usetabs;
+            mem_block = memblock;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        int get_currentarray() {
+            return current_array;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        void set_currentarray(int currentarray) {
+            current_array = currentarray;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        bool get_tabs() {
+            return use_tabs;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        int get_filesize() {
+            return file_size;
+        }
+        /*
+            Hack method that makes operator<<
+            for ifstream and fstream actually compile.
+            DO NOT USE OUTSIDE OF THAT.
+        */
+        unsigned char* get_memblock() {
+            return mem_block;
+        }
+        /*
+            Gets The hexstream data as a string.
+        */
+        const std::wstring str() {
+            return base_whexstream.str();
+        }
+        /*
+            Sets The hexstream data.
+        */
+        const std::wstring str(std::wstring info) {
+            base_whexstream.str(info);
+            return base_whexstream.str();
+        }
+        /*
+            Clears out everything in the hexstream data.
+        */
+        void clear() {
+            data_cleared = true;
+            base_whexstream.clear();
+            base_whexstream.str(L"");
+        }
+        friend basic_whexstream& operator<< (basic_whexstream& Hexstream, std::wifstream& fileStream) {
+            std::wstring data;
+            bool use_tabs = Hexstream.get_tabs();
+            for (unsigned int l = 0; l < Hexstream.get_filesize(); l++) {
+                if (Hexstream.get_currentarray() == 0) {
+                    if (use_tabs) {
+                        data += L'\t';
+                    } else {
+                        data += L"    ";
+                    }
+                }
+                unsigned char* memblock = Hexstream.get_memblock();
+                int ch = static_cast<int>(memblock[l]);
+                Hexstream.AddCharacter(ch);
+                data += Hexstream.str();
+                Hexstream.clear();
+                int current_array = Hexstream.get_currentarray();
+                Hexstream.set_currentarray(++current_array);
+                if (Hexstream.get_currentarray() % 16 == 0) {
+                    if (use_tabs) {
+                        data = data.replace(data.length() - 1, 1, L"\n\t");
+                    } else {
+                        data = data.replace(data.length() -1, 1, L"\n    ");
+                    }
+                }
+            }
+            Hexstream.str(data);
+            return Hexstream;
+        }
+        friend basic_whexstream& operator<< (basic_whexstream& Hexstream, std::wfstream& fileStream) {
+            std::wstring data;
+            bool use_tabs = Hexstream.get_tabs();
+            for (unsigned int l = 0; l < Hexstream.get_filesize(); l++) {
+                if (Hexstream.get_currentarray() == 0) {
+                    if (use_tabs) {
+                        data += L'\t';
+                    } else {
+                        data += L"    ";
+                    }
+                }
+                unsigned char* memblock = Hexstream.get_memblock();
+                int ch = static_cast<int>(memblock[l]);
+                Hexstream.AddCharacter(ch);
+                data += Hexstream.str();
+                Hexstream.clear();
+                int current_array = Hexstream.get_currentarray();
+                Hexstream.set_currentarray(++current_array);
+                if (Hexstream.get_currentarray() % 16 == 0) {
+                    if (use_tabs) {
+                        data = data.replace(data.length() - 1, 1, L"\n\t");
+                    } else {
+                        data = data.replace(data.length() -1, 1, L"\n    ");
+                    }
+                }
+            }
+            Hexstream.str(data);
+            return Hexstream;
+        }
+        friend basic_whexstream& operator<< (basic_whexstream& Hexstream, int character) {
+            Hexstream.AddCharacter(character);
+            return Hexstream;
+        }
+        friend std::wstring& operator>> (basic_whexstream& Hexstream, std::wstring& String) {
+            String += Hexstream.str();
+            // Should I clear this stream? hmm
+            Hexstream.clear();
+            return String;
+        }
+        basic_whexstream(bool append_0x, bool writehexseparator,
+                        int maxarray,
+                        int filesize, bool usetabs,
+                        unsigned char* memblock) {
+            setoptions(append_0x, writehexseparator, maxarray, filesize, usetabs, memblock);
+            current_array = 0;
+        }
+        basic_whexstream() {
+        }
+        ~basic_whexstream() {
+            // clears the data just in case.
+            // This makes clearing this manually optional.
+            if(!data_cleared) {
+                clear();
+            }
+        }
+    };
+    typedef basic_hexstream hexstream;
+    typedef basic_whexstream whexstream;
+}
+
+#endif

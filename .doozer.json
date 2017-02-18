@@ -1,0 +1,82 @@
+{
+    "targets": {
+        "trusty-i386-gcc": {
+            "buildenv": "trusty-i386",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6.2 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6.2 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "trusty-amd64-gcc": {
+            "buildenv": "trusty-amd64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6.2 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6.2 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "osx-gcc": {
+            "buildenv": "osx",
+            "builddeps": [],
+            "buildcmd": [
+                "brew install gcc",
+                "g++-6.2 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6.2 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "trusty-i386-clang": {
+            "buildenv": "trusty-i386",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install clang-3.9 lldb-3.9",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "trusty-amd64-clang": {
+            "buildenv": "trusty-amd64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install clang-3.9 lldb-3.9",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "osx-clang": {
+            "buildenv": "osx",
+            "builddeps": [],
+            "buildcmd": [
+                "brew install clang",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        }
+    }
+}

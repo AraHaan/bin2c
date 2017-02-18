@@ -1,0 +1,5 @@
+/*
+	libunicodemacros.h
+*/
+
+#include "libunicodemacros"
