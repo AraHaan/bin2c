@@ -2,6 +2,9 @@
 	VP.cpp
 */
 
+#ifdef _WIN32
+#define _HAS_EXCRPTIONS 0
+#endif
 #include <string>
 #include <iostream>
 #include <fstream>

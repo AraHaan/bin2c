@@ -125,7 +125,7 @@ namespace AraHaan {
         friend basic_hexstream& operator<< (basic_hexstream& Hexstream, std::ifstream& fileStream) {
             std::string data;
             bool use_tabs = Hexstream.get_tabs();
-            for (unsigned int l = 0; l < Hexstream.get_filesize(); l++) {
+            for (unsigned int l = 0; l < static_cast<unsigned int>(Hexstream.get_filesize()); l++) {
                 if (Hexstream.get_currentarray() == 0) {
                     if (use_tabs) {
                         data += '\t';
@@ -154,7 +154,7 @@ namespace AraHaan {
         friend basic_hexstream& operator<< (basic_hexstream& Hexstream, std::fstream& fileStream) {
             std::string data;
             bool use_tabs = Hexstream.get_tabs();
-            for (unsigned int l = 0; l < Hexstream.get_filesize(); l++) {
+            for (unsigned int l = 0; l < static_cast<unsigned int>(Hexstream.get_filesize()); l++) {
                 if (Hexstream.get_currentarray() == 0) {
                     if (use_tabs) {
                         data += '\t';
@@ -322,7 +322,7 @@ namespace AraHaan {
         friend basic_whexstream& operator<< (basic_whexstream& Hexstream, std::wifstream& fileStream) {
             std::wstring data;
             bool use_tabs = Hexstream.get_tabs();
-            for (unsigned int l = 0; l < Hexstream.get_filesize(); l++) {
+            for (unsigned int l = 0; l < static_cast<unsigned int>(Hexstream.get_filesize()); l++) {
                 if (Hexstream.get_currentarray() == 0) {
                     if (use_tabs) {
                         data += L'\t';
@@ -351,7 +351,7 @@ namespace AraHaan {
         friend basic_whexstream& operator<< (basic_whexstream& Hexstream, std::wfstream& fileStream) {
             std::wstring data;
             bool use_tabs = Hexstream.get_tabs();
-            for (unsigned int l = 0; l < Hexstream.get_filesize(); l++) {
+            for (unsigned int l = 0; l < static_cast<unsigned int>(Hexstream.get_filesize()); l++) {
                 if (Hexstream.get_currentarray() == 0) {
                     if (use_tabs) {
                         data += L'\t';

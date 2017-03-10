@@ -3,7 +3,9 @@
 */
 #ifndef LIBBIN2CCONSTANTS_DEFINED
 #define LIBBIN2CCONSTANTS_DEFINED
+#ifdef _WIN32
 #define _HAS_EXCEPTIONS 0
+#endif
 #include <string>
 #include <vector>
 #include "libargparse.hpp"

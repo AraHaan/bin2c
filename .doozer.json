@@ -1,5 +1,50 @@
 {
     "targets": {
+        "jessie-i386-gcc": {
+            "buildenv": "jessie-i386",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "precise-i386-gcc": {
+            "buildenv": "precise-i386",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "precise-amd64-gcc": {
+            "buildenv": "precise-amd64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
         "trusty-i386-gcc": {
             "buildenv": "trusty-i386",
             "builddeps": [],
@@ -8,11 +53,11 @@
                 "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
                 "sudo apt-get update",
                 "sudo apt-get install gcc-6 g++-6 -y",
-                "g++-6.2 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
-                "g++-6.2 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
             ]
         },
         "trusty-amd64-gcc": {
@@ -23,31 +68,169 @@
                 "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
                 "sudo apt-get update",
                 "sudo apt-get install gcc-6 g++-6 -y",
-                "g++-6.2 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
-                "g++-6.2 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
             ]
         },
-        "osx-gcc": {
-            "buildenv": "osx",
+        "xenial-i386-gcc": {
+            "buildenv": "xenial-i386",
             "builddeps": [],
             "buildcmd": [
-                "brew install gcc",
-                "g++-6.2 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
-                "g++-6.2 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "xenial-amd64-gcc": {
+            "buildenv": "xenial-amd64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "fedora24-x86_64-gcc": {
+            "buildenv": "fedora24-x86_64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "centos7-x86_64-gcc": {
+            "buildenv": "centos7-x86_64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        //"osx-gcc": {
+        //    "buildenv": "osx",
+        //    "homebrew": {
+        //        "formulae": ["gcc"]
+        //    },
+        //    "builddeps": [],
+        //    "buildcmd": [
+        //        "g++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -lc++experimental -o ./bin2c",
+        //        "chmod u+x ./bin2c",
+        //        "chmod u+x ./tests/VP.jpg",
+        //        "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+        //        "g++ -O3 -std=c++14 -stdlib=libc++ ./tests/VP.cpp -o ./tests/VP"
+        //    ]
+        //},
+        "jessie-i386-clang": {
+            "buildenv": "jessie-i386",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "precise-i386-clang": {
+            "buildenv": "precise-i386",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/precise/ llvm-toolchain-precise-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "precise-amd64-clang": {
+            "buildenv": "precise-amd64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/precise/ llvm-toolchain-precise-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
             ]
         },
         "trusty-i386-clang": {
             "buildenv": "trusty-i386",
             "builddeps": [],
             "buildcmd": [
-                "sudo apt-get install clang-3.9 lldb-3.9",
-                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
@@ -58,25 +241,125 @@
             "buildenv": "trusty-amd64",
             "builddeps": [],
             "buildcmd": [
-                "sudo apt-get install clang-3.9 lldb-3.9",
-                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
                 "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
             ]
         },
-        "osx-clang": {
-            "buildenv": "osx",
+        "xenial-i386-clang": {
+            "buildenv": "xenial-i386",
             "builddeps": [],
             "buildcmd": [
-                "brew install clang",
-                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -o ./bin2c",
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
                 "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
             ]
+        },
+        "xenial-amd64-clang": {
+            "buildenv": "xenial-amd64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "fedora24-x86_64-clang": {
+            "buildenv": "fedora24-x86_64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/fedora24/ llvm-toolchain-fedora24-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
+        "centos7-x86_64-clang": {
+            "buildenv": "centos7-x86_64",
+            "builddeps": [],
+            "buildcmd": [
+                "sudo apt-get install --no-install-recommends lsb-core software-properties-common wget -y",
+                "wget -q -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -",
+                "sudo add-apt-repository -y \"deb http://apt.llvm.org/centos7/ llvm-toolchain-centos7-3.9 main\"",
+                "sudo apt-get update",
+                "sudo apt-get upgrade",
+                "sudo apt-get install software-properties-common -y",
+                "sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y",
+                "sudo apt-get update",
+                "sudo apt-get install gcc-6 g++-6 -y",
+                "sudo apt-get install clang-3.9 lldb-3.9 -y",
+                "sudo apt-get update",
+                "clang++-3.9 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+            ]
+        //},
+        //"osx-clang": {
+        //    "buildenv": "osx",
+        //    "homebrew": {
+        //        "formulae": ["llvm"]
+        //    },
+        //    "builddeps": [],
+        //    "buildcmd": [
+        //        "clang++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -lc++experimental -o ./bin2c",
+        //        "chmod u+x ./bin2c",
+        //        "chmod u+x ./tests/VP.jpg",
+        //        "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+        //        "clang++ -O3 -std=c++14 -stdlib=libc++ ./tests/VP.cpp -o ./tests/VP"
+        //    ]
         }
     }
 }
