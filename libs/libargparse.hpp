@@ -70,7 +70,7 @@ public:
 	#ifdef _WIN32
 				SetConsoleTitleA(array1[0].c_str());
 	#else
-				std::cout << array2[2] << array1[0] << array2[3];
+				std::cout << array2[3] << array1[0] << array2[4];
 	#endif
 				std::cout << array1[1] << std::endl;
 				std::cin.get();
