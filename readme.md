@@ -18,9 +18,11 @@ Windows (Requires Visual Studio 2015 or newer with command line tools):
 
 - open bin2c.sln in Visual Studio 2015 or newer.
 
-- open the Developer Command Prompt x86 (for 32-bit compile) or x64 (for 64-bit compile).
+- select the configuration platform you want and Build the Release Configuration. You can pick 32 or 64 bit.
 
-- then to build the tests create a batch file named compile.bat in the folder you downloaded bin2c to with this content: 
+- then open the Developer Command Prompt x86 (for 32-bit compile) or x64 (for 64-bit compile).
+
+- and then to build the tests create a batch file named compile.bat in the folder you downloaded bin2c to with this content: 
 ```cmd
 @echo off
 cd tests
