@@ -135,20 +135,20 @@
                 "g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
             ]
         },
-        //"osx-gcc": {
-        //    "buildenv": "osx",
-        //    "homebrew": {
-        //        "formulae": ["gcc"]
-        //    },
-        //    "builddeps": [],
-        //    "buildcmd": [
-        //        "g++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -lc++experimental -o ./bin2c",
-        //        "chmod u+x ./bin2c",
-        //        "chmod u+x ./tests/VP.jpg",
-        //        "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
-        //        "g++ -O3 -std=c++14 -stdlib=libc++ ./tests/VP.cpp -o ./tests/VP"
-        //    ]
-        //},
+        "osx-gcc": {
+            "buildenv": "osx",
+            "homebrew": {
+                "formulae": ["gcc"]
+            },
+            "builddeps": [],
+            "buildcmd": [
+                "g++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "g++ -O3 -std=c++14 -stdlib=libc++ ./tests/VP.cpp -o ./tests/VP"
+            ]
+        },
         "jessie-i386-clang": {
             "buildenv": "jessie-i386",
             "builddeps": [],
@@ -346,20 +346,20 @@
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
                 "clang++-3.9 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
             ]
-        //},
-        //"osx-clang": {
-        //    "buildenv": "osx",
-        //    "homebrew": {
-        //        "formulae": ["llvm"]
-        //    },
-        //    "builddeps": [],
-        //    "buildcmd": [
-        //        "clang++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -lc++experimental -o ./bin2c",
-        //        "chmod u+x ./bin2c",
-        //        "chmod u+x ./tests/VP.jpg",
-        //        "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
-        //        "clang++ -O3 -std=c++14 -stdlib=libc++ ./tests/VP.cpp -o ./tests/VP"
-        //    ]
+        },
+        "osx-clang": {
+            "buildenv": "osx",
+            "homebrew": {
+                "formulae": ["llvm"]
+            },
+            "builddeps": [],
+            "buildcmd": [
+                "clang++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -lc++experimental -o ./bin2c",
+                "chmod u+x ./bin2c",
+                "chmod u+x ./tests/VP.jpg",
+                "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
+                "clang++ -O3 -std=c++14 -stdlib=libc++ ./tests/VP.cpp -o ./tests/VP"
+            ]
         }
     }
 }
