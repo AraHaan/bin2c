@@ -354,7 +354,7 @@
             },
             "builddeps": [],
             "buildcmd": [
-                "clang++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -lc++experimental -o ./bin2c",
+                "clang++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
