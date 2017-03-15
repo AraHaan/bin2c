@@ -360,6 +360,6 @@
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
                 "clang++ -O3 -std=c++14 -stdlib=libc++ ./tests/VP.cpp -o ./tests/VP"
             ]
-        }//
+        }
     }
 }
