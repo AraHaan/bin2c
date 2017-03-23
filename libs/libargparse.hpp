@@ -8,13 +8,21 @@
 #ifndef LIBARGPARSE_DEFINED
 #define LIBARGPARSE_DEFINED
 #include "lib2hex.hpp"
+#ifndef _MAC
 #include <experimental/filesystem>
+#else
+#include <boost/filesystem.hpp>
+#endif
 #include <iostream>
 #ifdef _WIN32
 	#include <Windows.h>
 #endif
 
+#ifndef _MAC
 namespace fs = std::experimental::filesystem;
+#else
+namespace fs = boost::filesystem;
+#endif
 
 
 class libargparse {
