@@ -138,7 +138,7 @@
         "osx-gcc": {
             "buildenv": "osx",
             "homebrew": {
-                "formulae": ["gcc", "boost"]
+                "formulae": ["gcc", "boost --with-libraries"]
             },
             "builddeps": [],
             "buildcmd": [
@@ -350,7 +350,7 @@
         "osx-clang": {
             "buildenv": "osx",
             "homebrew": {
-                "formulae": ["llvm", "boost"]
+                "formulae": ["llvm", "boost --with-libraries"]
             },
             "builddeps": [],
             "buildcmd": [
