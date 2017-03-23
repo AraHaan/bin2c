@@ -15,7 +15,7 @@ std::vector<std::string> base_array{"ERROR: ", "0.15.0", "[BETA]", "[ALPHA]", "[
 	std::vector<std::string> os_array{"Windows", ".exe", base_array[4]};
 #elif __linux__
 	std::vector<std::string> os_array{"Linux", "", base_array[4], "\033]2;", "\007\n\033[1A"};
-#elif _MAC
+#else
 	std::vector<std::string> os_array{"MAC", ".app", base_array[4], "\033]0;", "\007"};
 #endif
 
