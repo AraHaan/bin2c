@@ -1,0 +1,1 @@
+This Directory is for building bin2c with boost from homebrew on the Doozer OSX Builds.
