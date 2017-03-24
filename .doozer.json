@@ -138,11 +138,11 @@
         "osx-gcc": {
             "buildenv": "osx",
             "homebrew": {
-                "formulae": ["gcc", "boost --with-libraries"]
+                "formulae": ["gcc", "boost"]
             },
             "builddeps": [],
             "buildcmd": [
-                "g++ -O0 -std=c++14 -I /usr/local/include -stdlib=libc++ bin2c.cpp -lboost_system -lboost_filesystem -o ./bin2c",
+                "g++ -O0 -std=c++14 -I ./boost -stdlib=libc++ bin2c.cpp -lboost_system -lboost_filesystem -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
@@ -350,11 +350,11 @@
         "osx-clang": {
             "buildenv": "osx",
             "homebrew": {
-                "formulae": ["llvm", "boost --with-libraries"]
+                "formulae": ["llvm", "boost"]
             },
             "builddeps": [],
             "buildcmd": [
-                "clang++ -O0 -std=c++14 -I /usr/local/include -stdlib=libc++ bin2c.cpp -lboost_system -lboost_filesystem -o ./bin2c",
+                "clang++ -O0 -std=c++14 -I ./boost -stdlib=libc++ bin2c.cpp -lboost_system -lboost_filesystem -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
                 "./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"",
