@@ -142,6 +142,10 @@
             },
             "builddeps": [],
             "buildcmd": [
+                "git clone https://github.com/boostorg/boost.git",
+                "cd boost",
+                "git checkout 3072108f2efea7888ad4e94d02c3c062468638f5",
+                "cd ..",
                 "g++ -O0 -std=c++14 -I ./boost -stdlib=libc++ bin2c.cpp -lboost_system -lboost_filesystem -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
@@ -354,6 +358,10 @@
             },
             "builddeps": [],
             "buildcmd": [
+                "git clone https://github.com/boostorg/boost.git",
+                "cd boost",
+                "git checkout 3072108f2efea7888ad4e94d02c3c062468638f5",
+                "cd ..",
                 "clang++ -O0 -std=c++14 -I ./boost -stdlib=libc++ bin2c.cpp -lboost_system -lboost_filesystem -o ./bin2c",
                 "chmod u+x ./bin2c",
                 "chmod u+x ./tests/VP.jpg",
