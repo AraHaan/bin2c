@@ -142,7 +142,7 @@
             },
             "builddeps": [],
             "buildcmd": [
-                "git clone https://github.com/boostorg/boost.git",
+                "git clone https://github.com/boostorg/boost.git ./boost",
                 "cd boost",
                 "git checkout 3072108f2efea7888ad4e94d02c3c062468638f5",
                 "cd ..",
@@ -358,7 +358,7 @@
             },
             "builddeps": [],
             "buildcmd": [
-                "git clone https://github.com/boostorg/boost.git",
+                "git clone https://github.com/boostorg/boost.git ./boost",
                 "cd boost",
                 "git checkout 3072108f2efea7888ad4e94d02c3c062468638f5",
                 "cd ..",
