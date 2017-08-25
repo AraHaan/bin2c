@@ -2,40 +2,85 @@ language: cpp
 sudo: required
 dist: trusty
 
-addons:
-#  coverity_scan:
-#    project:
-#      name: "AraHaan/bin2c"
-#      version: 0.15.0
-#      description: "bin2c Conversion Tool."
-
-    apt:
-        sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.9
-        packages:
-            - g++-6
-            - clang-3.9
-
-    notification_email: seandhunt_7@yahoo.com
+# addons:
+#   coverity_scan:
+#     project:
+#       name: "AraHaan/bin2c"
+#       version: 0.15.0
+#       description: "bin2c Conversion Tool."
+#
+#     apt:
+#         sources:
+#             - ubuntu-toolchain-r-test
+#             - llvm-toolchain-precise-3.9
+#         packages:
+#             - g++-6
+#             - clang-3.9
+#
+#     notification_email: seandhunt_7@yahoo.com
 #    build_command_prepend: " -O3 -std=c++14 bin2c.cpp -o bin2c"
 #    build_command: $CXX
 #    branch_pattern: coverity_scan
 
 matrix:
   include:
-    - compiler: gcc
-      env: COMPILER=g++-6
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env:
+         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
 
-    - compiler: clang
-      env: COMPILER=clang++-3.9
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env:
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+
+    - os: osx
+      osx_image: xcode8
+      env:
+        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+
+    - os: osx
+      osx_image: xcode8
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
+
+    - os: osx
+      osx_image: xcode8
+      env:
+        - MATRIX_EVAL="brew install gcc && CC=gcc-6 && CXX=g++-6"
 
 before_install:
-    - if [ "$TRAVIS_OS_NAME" = "linux"  ]; then sudo apt-get -qq update;    fi
+    - eval "${MATRIX_EVAL}"
 
-before_script:
-    - if [ "$COMPILER" = "g++-6"        ]; then export CXX="g++-6" CC="gcc-6";              fi
-    - if [ "$COMPILER" = "clang++-3.9"  ]; then export CXX="clang++-3.9" CC="clang-3.9";    fi
+# before_install:
+#     - if [ "$TRAVIS_OS_NAME" = "linux"  ]; then sudo apt-get -qq update;    fi
+
+# before_script:
+#     - if [ "$COMPILER" = "g++-6"        ]; then export CXX="g++-6" CC="gcc-6";              fi
+#     - if [ "$COMPILER" = "clang++-3.9"  ]; then export CXX="clang++-3.9" CC="clang-3.9";    fi
 
 script:
   - $CXX -O3 -std=c++14 bin2c.cpp -lstdc++fs -o "bin2c"
