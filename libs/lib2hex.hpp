@@ -64,8 +64,14 @@ public:
 		f2.close();
 		if (!TargetCS) {
 			std::cout << _consolefilevar << array[29];
+			#ifdef _WIN32
+				std::cout << array[38];
+			#endif
 		} else {
 			std::cout << _consolefilevar << array[30];
+			#ifdef _WIN32
+				std::cout << array[39];
+			#endif
 		}
 	}
 	lib2hex(void) {
