@@ -30,9 +30,9 @@ std::vector<std::string> bin2c_constants{
 	"\n*/\n\nbyte[] ", " = {\n", "\t", "\n\t", "\n", "};\n\nsize_t ", "_SIZE = ",
 	";\nconst char * ", "_NAME = \"", "\";\n", "};\n\nint ", "_SIZE = ", ";\nchar[] ",
 	"_NAME = \"", "\";\n", base_array[0] + "The Input File '", "' does not exist.\n",
-	" was successfully generated.\nBe sure to add it to your C/C++ Project file.\n",
-	" was successfully generated.\nBe sure to add it to your C# Project file.\n",
-	"/help", "/?", "/custvar", "/nohead", "/infile", "/outfile", "/target"
+	" was successfully generated.\n", " was successfully generated.\n",
+	"/help", "/?", "/custvar", "/nohead", "/infile", "/outfile", "/target",
+	"Be sure to add it to your C/C++ Project file.\n", "Be sure to add it to your C# Project file.\n"
 };
 
 void pass_constants(int argc, char* argv[]) {
