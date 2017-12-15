@@ -62,8 +62,8 @@ matrix:
         apt:
           sources:
             - llvm-toolchain-trusty-3.9
-            - libc++-dev
           packages:
+            - g++-5
             - clang-3.9
       env:
         - MATRIX_EVAL="CCC=clang-3.9 && CXXX=clang++-3.9 && FSLIB=-lc++experimental && CPPLIB=-stdlib=libc++"
@@ -74,8 +74,8 @@ matrix:
         apt:
           sources:
             - llvm-toolchain-trusty-4.0
-            - libc++-dev
           packages:
+            - g++-6
             - clang-4.0
       env:
         - MATRIX_EVAL="CCC=clang-4.0 && CXXX=clang++-4.0 && FSLIB=-lc++experimental && CPPLIB=-stdlib=libc++"
@@ -86,8 +86,8 @@ matrix:
         apt:
           sources:
             - llvm-toolchain-trusty-5.0
-            - libc++-dev
           packages:
+            - g++-7
             - clang-5.0
       env:
         - MATRIX_EVAL="CCC=clang-5.0 && CXXX=clang++-5.0 && FSLIB=-lc++experimental && CPPLIB=-stdlib=libc++"
