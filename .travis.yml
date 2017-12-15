@@ -57,7 +57,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
-  allow_failures:
     - os: linux
       addons:
         apt:
@@ -89,6 +88,13 @@ matrix:
             - clang-5.0
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+
+  allow_failures:
+    - packages: clang-5.0
+
+    - packages: clang-4.0
+
+    - packages: clang-3.9
 
     - os: osx
       osx_image: xcode8.3
