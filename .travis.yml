@@ -63,7 +63,6 @@ matrix:
           sources:
             - llvm-toolchain-trusty-3.9
             - libc++-dev
-            - libc++
           packages:
             - clang-3.9
       env:
@@ -76,7 +75,6 @@ matrix:
           sources:
             - llvm-toolchain-trusty-4.0
             - libc++-dev
-            - libc++
           packages:
             - clang-4.0
       env:
@@ -89,7 +87,6 @@ matrix:
           sources:
             - llvm-toolchain-trusty-5.0
             - libc++-dev
-            - libc++
           packages:
             - clang-5.0
       env:
