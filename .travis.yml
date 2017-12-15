@@ -28,6 +28,68 @@ notifications:
     on_failure: never
 
 matrix:
+  fast_finish: true
+  allow_failures:
+    - os: osx
+      osx_image: xcode8.3
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode8.3
+      env:
+        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode8.3
+      env:
+        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9
+      env:
+        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9
+      env:
+        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9.1
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9.1
+      env:
+        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9.1
+      env:
+        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9.2
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9.2
+      env:
+        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6 && FSLIB=-lstdc++fs"
+
+    - os: osx
+      osx_image: xcode9.2
+      env:
+        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7 && FSLIB=-lstdc++fs"
+
   include:
     # works on Precise and Trusty
     - os: linux
@@ -99,67 +161,6 @@ matrix:
             - clang-5.0
       env:
         - MATRIX_EVAL="CCC=clang-5.0 && CXXX=clang++-5.0 && FSLIB=-lc++experimental"
-
-  allow_failures:
-    - os: osx
-      osx_image: xcode8.3
-      env:
-        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode8.3
-      env:
-        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode8.3
-      env:
-        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9
-      env:
-        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9
-      env:
-        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9
-      env:
-        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9.1
-      env:
-        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9.1
-      env:
-        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9.1
-      env:
-        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9.2
-      env:
-        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9.2
-      env:
-        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6 && FSLIB=-lstdc++fs"
-
-    - os: osx
-      osx_image: xcode9.2
-      env:
-        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7 && FSLIB=-lstdc++fs"
 
 before_install:
     - eval "${MATRIX_EVAL}"
