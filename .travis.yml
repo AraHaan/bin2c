@@ -22,6 +22,11 @@ dist: trusty
 #    build_command: $CXX
 #    branch_pattern: coverity_scan
 
+notifications:
+  email:
+    on_success: always
+    on_failure: never
+
 matrix:
   include:
     # works on Precise and Trusty
