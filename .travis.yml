@@ -33,7 +33,7 @@ matrix:
           packages:
             - g++-5
       env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+         - MATRIX_EVAL="CCC=gcc-5 && CXXX=g++-5"
 
     # works on Precise and Trusty
     - os: linux
@@ -44,7 +44,7 @@ matrix:
           packages:
             - g++-6
       env:
-        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+        - MATRIX_EVAL="CCC=gcc-6 && CXXX=g++-6"
 
     # works on Precise and Trusty
     - os: linux
@@ -55,7 +55,7 @@ matrix:
           packages:
             - g++-7
       env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        - MATRIX_EVAL="CCC=gcc-7 && CXXX=g++-7"
 
     - os: linux
       addons:
@@ -65,7 +65,7 @@ matrix:
           packages:
             - clang-3.9
       env:
-        - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
+        - MATRIX_EVAL="CCC=clang-3.9 && CXXX=clang++-3.9"
 
     # works on Trusty
     - os: linux
@@ -76,7 +76,7 @@ matrix:
           packages:
             - clang-4.0
       env:
-        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+        - MATRIX_EVAL="CCC=clang-4.0 && CXXX=clang++-4.0"
 
     # works on Trusty
     - os: linux
@@ -87,87 +87,80 @@ matrix:
           packages:
             - clang-5.0
       env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+        - MATRIX_EVAL="CCC=clang-5.0 && CXXX=clang++-5.0"
 
   allow_failures:
-    - env: MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-
-    - env: MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
-
-    - env: MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
+    - os: osx
+      osx_image: xcode8.3
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5"
 
     - os: osx
       osx_image: xcode8.3
       env:
-        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
+        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6"
 
     - os: osx
       osx_image: xcode8.3
       env:
-        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
-
-    - os: osx
-      osx_image: xcode8.3
-      env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
+        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7"
 
     - os: osx
       osx_image: xcode9
       env:
-        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
+        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5"
 
     - os: osx
       osx_image: xcode9
       env:
-        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
+        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6"
 
     - os: osx
       osx_image: xcode9
       env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
+        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7"
 
     - os: osx
       osx_image: xcode9.1
       env:
-        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
+        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5"
 
     - os: osx
       osx_image: xcode9.1
       env:
-        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
+        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6"
 
     - os: osx
       osx_image: xcode9.1
       env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
-
-
-    - os: osx
-      osx_image: xcode9.2
-      env:
-        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
+        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7"
 
     - os: osx
       osx_image: xcode9.2
       env:
-        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
+        - MATRIX_EVAL="brew install gcc5 && CCC=gcc-5 && CXXX=g++-5"
 
     - os: osx
       osx_image: xcode9.2
       env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
+        - MATRIX_EVAL="brew install gcc6 && CCC=gcc-6 && CXXX=g++-6"
+
+    - os: osx
+      osx_image: xcode9.2
+      env:
+        - MATRIX_EVAL="brew install gcc && CCC=gcc-7 && CXXX=g++-7"
 
 before_install:
     - eval "${MATRIX_EVAL}"
 
 script:
-  - $CXX -O3 -std=c++14 bin2c.cpp -lstdc++fs -o "bin2c"
+  - $CXXX -O3 -std=c++14 bin2c.cpp -lstdc++fs -o "bin2c"
 
 after_success:
   - chmod u+x ./bin2c
   - chmod u+x ./tests/VP.jpg
   - ./bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
-  - $CXX -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP
+  - $CXXX -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP
 
 #env:
 #  global:
