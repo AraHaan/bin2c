@@ -67,6 +67,7 @@ matrix:
         apt:
           sources:
             - llvm-toolchain-trusty-3.9
+            - ubuntu-toolchain-r-test
           packages:
             - g++-5
             - clang-3.9
@@ -79,6 +80,7 @@ matrix:
         apt:
           sources:
             - llvm-toolchain-trusty-4.0
+            - ubuntu-toolchain-r-test
           packages:
             - g++-6
             - clang-4.0
@@ -91,6 +93,7 @@ matrix:
         apt:
           sources:
             - llvm-toolchain-trusty-5.0
+            - ubuntu-toolchain-r-test
           packages:
             - g++-7
             - clang-5.0
