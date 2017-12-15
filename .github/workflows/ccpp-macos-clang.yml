@@ -1,0 +1,26 @@
+name: C/C++ CI (Mac OSX clang)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3.3.0
+    - name: Compiler check
+      run: clang++ --version
+    - name: Compile
+      run: >-
+        cd MAC
+
+        make
+      env:
+        CXX: clang++
+        
+    - name: Tests
+      run: >-
+        cd MAC
+
+        make test

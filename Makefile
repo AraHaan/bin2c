@@ -3,7 +3,7 @@ TARGET = bin2c
 FILE = bin2c.cpp
 
 $(TARGET):
-	$(CXX) -O3 -std=c++14 $(FILE) $(FSFLAG) -o $(TARGET)
+	$(CXX) -O3 -std=c++17 $(FILE) $(FSFLAG) -o $(TARGET)
 test:
 	rm -f ./tests/VP.hpp
 	./bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp"
@@ -13,4 +13,5 @@ test:
 .PHONY: clean
 clean:
 	rm -f ./tests/VP.hpp
+	rm -f ./tests/VP
 	rm -f ./bin2c

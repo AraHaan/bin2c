@@ -1,0 +1,28 @@
+name: C/C++ CI (Mac OSX GCC)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3.3.0
+    - name: Compiler check
+      run: g++ --version
+    - name: Compile
+      run: >-
+        cd MAC
+
+        make
+      env:
+        CXX: g++
+        
+    - name: Tests
+      run: >-
+        cd MAC
+
+        make test
+      env:
+        CXX: g++

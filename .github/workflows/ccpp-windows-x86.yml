@@ -1,0 +1,23 @@
+name: C/C++ CI (Windows x86)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3.3.0
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1
+    - name: Compile
+      run: msbuild "bin2c.sln" /m /verbosity:minimal
+      env:
+        Platform: x86
+        Configuration: Release
+    - name: Tests
+      run: >-
+        Release/bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
+        
+        # msbuild "tests/VP.sln"

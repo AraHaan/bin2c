@@ -1,0 +1,22 @@
+name: C/C++ CI (Ubuntu clang)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3.3.0
+    - name: Compiler check
+      run: clang++ --version
+    - name: Compile
+      run: make
+      env:
+        CXX: clang++
+        
+    - name: Tests
+      run: make test
+      env:
+        CXX: clang++
