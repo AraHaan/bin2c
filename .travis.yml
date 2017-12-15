@@ -165,7 +165,6 @@ after_success:
   - ./bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
   - $CXXX -O3 -std=c++14 $CPPLIB ./tests/VP.cpp -o ./tests/VP
   - chmod u+x ./tests/VP
-  - ./tests/VP && echo Y # to terminate ./tests/VP Cleanly.
 
 #env:
 #  global:
