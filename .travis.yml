@@ -90,11 +90,11 @@ matrix:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
 
   allow_failures:
-    - packages: clang-5.0
+    - env: MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
 
-    - packages: clang-4.0
+    - env: MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
 
-    - packages: clang-3.9
+    - env: MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
 
     - os: osx
       osx_image: xcode8.3
