@@ -57,41 +57,38 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
-    # Commented out because it seems this likes to refer to GCC 4.8's stlib dirs which is not correct for C++ 14/17. Need a fix for this part.
-    # works on Trusty
-#    - os: linux
-#      addons:
-#        apt:
-#          sources:
-#            - llvm-toolchain-trusty-3.9
-#          packages:
-#            - clang-3.9
-#      env:
-#        - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
+  allow_failures:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-3.9
+          packages:
+            - clang-3.9
+      env:
+        - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
 
-    # Commented out because it seems this likes to refer to GCC 4.8's stlib dirs which is not correct for C++ 14/17. Need a fix for this part.
     # works on Trusty
-#    - os: linux
-#      addons:
-#        apt:
-#          sources:
-#            - llvm-toolchain-trusty-4.0
-#          packages:
-#            - clang-4.0
-#      env:
-#        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-4.0
+          packages:
+            - clang-4.0
+      env:
+        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
 
-    # And then Apt fails to install clang 5....
     # works on Trusty
-#    - os: linux
-#      addons:
-#        apt:
-#          sources:
-#            - llvm-toolchain-trusty-5.0
-#          packages:
-#            - clang-5.0
-#      env:
-#        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+      env:
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
 
     - os: osx
       osx_image: xcode8.3
@@ -105,6 +102,52 @@ matrix:
 
     - os: osx
       osx_image: xcode8.3
+      env:
+        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
+
+    - os: osx
+      osx_image: xcode9
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
+
+    - os: osx
+      osx_image: xcode9
+      env:
+        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
+
+    - os: osx
+      osx_image: xcode9
+      env:
+        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
+
+    - os: osx
+      osx_image: xcode9.1
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
+
+    - os: osx
+      osx_image: xcode9.1
+      env:
+        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
+
+    - os: osx
+      osx_image: xcode9.1
+      env:
+        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
+
+
+    - os: osx
+      osx_image: xcode9.2
+      env:
+        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
+
+    - os: osx
+      osx_image: xcode9.2
+      env:
+        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
+
+    - os: osx
+      osx_image: xcode9.2
       env:
         - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
 
