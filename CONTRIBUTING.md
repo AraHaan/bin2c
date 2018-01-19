@@ -5,4 +5,4 @@
 
 # Vulnerabilities
 
-- Always, I repeat, always report those [here](https://github.com/AraHaan/bin2c/issues/new/)
+- Always, I repeat, always report those [here](https://github.com/AraHaan/bin2c/issues/new/).
