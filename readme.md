@@ -10,6 +10,8 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/778/badge)](https://bestpractices.coreinfrastructure.org/projects/778)
 [![freenode](https://img.shields.io/badge/chat-on%20freenode-brightgreen.svg)](https://webchat.freenode.net/)
 
+> This program takes any sort of binary file (such as a PNG image file) and processes it into a file that contains its data in a C array allowing it to be embedded in the contents of a program.
+
 The Channel is #bin2c on freenode so be sure to do ``/JOIN #bin2c`` on the main status part of freenode.
 
 bin2c v0.15.0 - Windows/Linux/MAC - [FINAL]:
