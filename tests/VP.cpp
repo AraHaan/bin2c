@@ -21,6 +21,5 @@ int main()
 	f.write(reinterpret_cast<char const *>(IMAGE_VP), IMAGE_VP_SIZE);
 	f.close();
 	std::cout << created_msg << std::endl;
-	std::cin.ignore();
 	return 0;
 }
