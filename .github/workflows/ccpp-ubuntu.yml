@@ -23,4 +23,4 @@ jobs:
       run: >-
         ./bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
 
-        g++ -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+        g++ -O3 -std=c++14 "./tests/VP.cpp" -o "./tests/VP"
