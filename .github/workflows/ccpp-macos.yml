@@ -11,15 +11,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Compiler check
       run: g++ --version
-    - name: Clone Boost
-      run: >-
-        git clone https://github.com/boostorg/boost.git ./boost
-
-        cd boost
-
-        git checkout 3072108f2efea7888ad4e94d02c3c062468638f5
-
-        cd ..
     - name: Compile
       run: g++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -lstdc++fs -o ./bin2c
     - name: Permission changes.
