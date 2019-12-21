@@ -9,11 +9,25 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Compiler check
+      run: g++ --version
+    - name: Clone Boost
+      run: >-
+        git clone https://github.com/boostorg/boost.git ./boost
+
+        cd boost
+
+        git checkout 3072108f2efea7888ad4e94d02c3c062468638f5
+
+        cd ..
+    - name: Compile
+      run: g++ -O0 -std=c++14 -I ./boost -stdlib=libc++ bin2c.cpp -lboost_system -lboost_filesystem -o ./bin2c
+    - name: Permission changes.
+      run: >-
+        chmod u+x ./bin2c
+        chmod u+x ./tests/VP.jpg
+    - name: Tests
+      run: >-
+        ./bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
+
+        g++ -O3 -std=c++14 -stdlib=libc++ "./tests/VP.cpp" -o "./tests/VP"
