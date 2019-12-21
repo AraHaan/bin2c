@@ -11,14 +11,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Compiler check
       run: g++ --version
-    - name: Install g++ 6.x.x
-      run: >-
-        sudo apt-get install software-properties-common -y
-        sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-        sudo apt-get update
-        sudo apt-get install gcc-6 g++-6 -y
     - name: Compile
-      run: g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c
+      run: g++ -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c
     - name: Permission changes.
       run: >-
         chmod u+x ./bin2c
@@ -26,4 +20,4 @@ jobs:
     - name: Tests
       run: >-
         ./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"
-        g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
+        g++ -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
