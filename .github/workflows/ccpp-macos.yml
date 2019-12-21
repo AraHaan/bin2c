@@ -21,7 +21,7 @@ jobs:
 
         cd ..
     - name: Compile
-      run: g++ -O0 -std=c++14 -I ./boost -stdlib=libc++ bin2c.cpp -lboost_system -lboost_filesystem -o ./bin2c
+      run: g++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -lstdc++fs -o ./bin2c
     - name: Permission changes.
       run: >-
         chmod u+x ./bin2c
