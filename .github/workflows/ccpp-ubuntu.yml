@@ -9,11 +9,15 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Compiler check
+      run: g++-6 --version
+    - name: Compile
+      run: g++-6 -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c
+    - name: Permission changes.
+      run: >-
+        chmod u+x ./bin2c
+        chmod u+x ./tests/VP.jpg
+    - name: Tests
+      run: >-
+        ./bin2c /custvar \"IMAGE_VP\" /nohead /infile \"./tests/VP.jpg\" /outfile \"./tests/VP.hpp\" /basefolder \"./tests/\"
+        g++-6 -O3 -std=c++14 ./tests/VP.cpp -o ./tests/VP"
