@@ -16,6 +16,7 @@ jobs:
     - name: Permission changes.
       run: >-
         chmod u+x ./bin2c
+        
         chmod u+x ./tests/VP.jpg
     - name: Tests
       run: >-
