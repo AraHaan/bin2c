@@ -1,4 +1,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/4yjvhauivwk0wgex?svg=true)](https://ci.appveyor.com/project/AraHaan/bin2c)
+[![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Windows)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
+[![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Ubuntu)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
+[![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Mac%20OSX)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
 [![Build Status](https://api.travis-ci.org/AraHaan/bin2c.svg?branch=master)](https://travis-ci.org/AraHaan/bin2c)
 [![Build status](https://doozer.io/badge/AraHaan/bin2c/buildstatus/master)](https://doozer.io/user/arahaan/bin2c)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3aab1e403474490aaacaa1a2883ccf8a)](https://www.codacy.com/app/AraHaan/bin2c?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AraHaan/bin2c&amp;utm_campaign=Badge_Grade)
