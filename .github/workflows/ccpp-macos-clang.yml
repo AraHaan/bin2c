@@ -1,0 +1,27 @@
+name: C/C++ CI (Mac OSX clang)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Compiler check
+      run: g++ --version
+    - name: Compile
+      run: clang++ -O3 -std=c++14 -stdlib=libc++ bin2c.cpp -o ./bin2c
+    - name: Permission changes.
+      run: >-
+        chmod u+x ./bin2c
+        
+        chmod u+x ./tests/VP.jpg
+        
+    - name: Tests
+      run: >-
+        ./bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
+        
+        clang++ -O3 -std=c++14 -stdlib=libc++ "./tests/VP.cpp" -o "./tests/VP"
+        
