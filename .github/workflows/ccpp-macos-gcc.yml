@@ -18,6 +18,7 @@ jobs:
         chmod u+x ./bin2c
         
         chmod u+x ./tests/VP.jpg
+        
     - name: Tests
       run: >-
         ./bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
