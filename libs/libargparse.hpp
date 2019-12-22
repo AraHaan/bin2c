@@ -8,13 +8,21 @@
 #ifndef LIBARGPARSE_DEFINED
 #define LIBARGPARSE_DEFINED
 #include "lib2hex.hpp"
+#ifdef _WIN32
 #include <filesystem>
+#else
+#include <experimental/filesystem>
+#endif
 #include <iostream>
 #ifdef _WIN32
 	#include <Windows.h>
 #endif
 
+#ifdef _WIN32
 namespace fs = std::filesystem;
+#else
+namespace fs = std::experimental::filesystem;
+#endif
 
 
 class libargparse {
