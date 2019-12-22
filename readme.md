@@ -52,6 +52,8 @@ MAC:
 
 *Also you need latest libc++ and you also need libc++experimental. Both of which can be obtained from ``brew install llvm``.*
 
+Update: Seems with the latest xcode or compilers on brew you do not need the libc++experimental nor link with ``-lstdc++fs`` on both gcc or clang (which on apple default on xcode is clang for the gcc). So to compile ensure you got a version of xcode compatible and is able to compile this. Minimum version is unknown atm.
+
 *Note: Don't forget to use the rc file. (which might need some changes) This should hopefully allow you to have a resource section.*
 *Also Since I do not work for apple nor do I even own a mac I do not know for sure how to compile an resoruce script on a mac for a .rsrc section on the compiled binary.*
 
