@@ -18,6 +18,6 @@ jobs:
         Configuration: Release
     - name: Tests
       run: >-
-        Release/x64/bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
+        x64/Release/bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
         
         msbuild "tests/VP.sln"
