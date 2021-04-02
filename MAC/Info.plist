@@ -5,7 +5,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>English</string>
     <key>CFBundleExecutable</key>
-    <string>bin2c</string>
+    <string>wrapper</string>
     <key>CFBundleGetInfoString</key>
     <string>Copyright 2017 AraHaan</string>
     <key>CFBundleIconFile</key>

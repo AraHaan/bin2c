@@ -74,6 +74,9 @@ public:
 	#endif
 				std::cout << array1[1] << std::endl;
 				std::cin.get();
+	#if !_WIN32
+				std::cout << array2[3] << "" << array2[4];
+	#endif
 			} else {
 				arg = argv[1];
 				if (arg == array1[32]) {
