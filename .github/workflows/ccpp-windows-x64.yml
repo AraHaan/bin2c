@@ -15,6 +15,7 @@ jobs:
       run: msbuild "bin2c.sln" /m /verbosity:minimal
       env:
         Platform: x64
+        Configuration: Release
     - name: Tests
       run: >-
         Release/x64/bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
