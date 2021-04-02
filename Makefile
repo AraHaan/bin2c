@@ -13,4 +13,5 @@ test:
 .PHONY: clean
 clean:
 	rm -f ./tests/VP.hpp
+	rm -f ./tests/VP
 	rm -f ./bin2c
