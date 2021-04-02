@@ -3,7 +3,7 @@ name: C/C++ CI (Windows)
 on: [push]
 
 jobs:
-  build:
+  build-x86:
 
     runs-on: windows-latest
     
@@ -12,7 +12,9 @@ jobs:
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: Compile
-      run: msbuild "bin2c.sln" /m /verbosity:minimal 
+      run: msbuild "bin2c.sln" /m /verbosity:minimal
+      env:
+        Platform: x86
     - name: Tests
       run: >-
         Release/x86/bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
