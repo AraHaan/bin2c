@@ -12,15 +12,17 @@ jobs:
     - name: Compiler check
       run: g++ --version
     - name: Compile
-      run: g++ -O3 -std=c++17 -stdlib=libc++ bin2c.cpp -o ./bin2c
-    - name: Permission changes.
       run: >-
-        chmod u+x ./bin2c
-        
-        chmod u+x ./tests/VP.jpg
+        cd MAC
+
+        make
+      env:
+        CXX: g++
         
     - name: Tests
       run: >-
-        ./bin2c /custvar "IMAGE_VP" /nohead /infile "./tests/VP.jpg" /outfile "./tests/VP.hpp" /basefolder "./tests/"
+        cd MAC
 
-        g++ -O3 -std=c++14 -stdlib=libc++ "./tests/VP.cpp" -o "./tests/VP"
+        make test
+      env:
+        CXX: g++
