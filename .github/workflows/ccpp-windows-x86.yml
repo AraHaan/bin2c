@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Setup MSBuild.exe
-      uses: warrenbuckley/Setup-MSBuild@v1
+      uses: warrenbuckley/Setup-MSBuild@v2
     - name: Compile
       run: msbuild "bin2c.sln" /m /verbosity:minimal
       env:
