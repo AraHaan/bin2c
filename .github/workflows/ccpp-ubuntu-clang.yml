@@ -12,7 +12,7 @@ jobs:
     - name: Compiler check
       run: clang++ --version
     - name: Compile
-      run: clang++ -O3 -std=c++14 bin2c.cpp -lstdc++fs -o ./bin2c
+      run: clang++ -O3 -std=c++17 bin2c.cpp -lstdc++fs -o ./bin2c
     - name: Permission changes.
       run: >-
         chmod u+x ./bin2c
