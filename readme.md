@@ -1,5 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/4yjvhauivwk0wgex?svg=true)](https://ci.appveyor.com/project/AraHaan/bin2c)
-[![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Windows)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
+[![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Windows%20x86)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
+[![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Windows%20x64)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
 [![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Ubuntu%20GCC)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
 [![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Ubuntu%20clang)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
 [![Build Status](https://github.com/AraHaan/bin2c/workflows/C/C++%20CI%20(Mac%20OSX%20GCC)/badge.svg)](https://github.com/AraHaan/bin2c/actions)
