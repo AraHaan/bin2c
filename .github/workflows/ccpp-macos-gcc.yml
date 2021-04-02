@@ -29,6 +29,8 @@ jobs:
 
     - name: Uninstall and clean build.
       run: >-
+        cd MAC
+
         make uninstall
 
         make clean
