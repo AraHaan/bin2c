@@ -1,9 +1,9 @@
-name: C/C++ CI (Windows)
+name: C/C++ CI (Windows x86)
 
 on: [push]
 
 jobs:
-  build-x86:
+  build:
 
     runs-on: windows-latest
     
