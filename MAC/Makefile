@@ -48,3 +48,15 @@ uninstall:
 symlink:
 	rm -f ./$(APPNAME)
 	ln -sv $(APPBUNDLEMACOS)/$(APPNAME) $(APPNAME)
+
+dmgimage:
+	mkdir dmgtmp
+	cp ./dmg/install ./dmgtmp/install
+	chmod +x ./dmgtmp/install
+	cp ./dmg/uninstall ./dmgtmp/uninstall
+	chmod +x ./dmgtmp/uninstall
+	cp -R $(APPBUNDLE) ./dmgtmp/$(APPBUNDLE)
+	hdiutil create ./tmp.dmg -ov -volname "$(APPNAME)" -fs HFS+ -srcfolder "./dmgtmp/"
+	hdiutil convert ./tmp.dmg -format UDZO -o "./$(APPNAME) Install $(CXX).dmg"
+	rm -f ./tmp.dmg
+	rm -rf ./dmgtmp
