@@ -14,8 +14,8 @@ namespace AraHaan {
     private:
         std::stringstream base_hexstream;
         bool data_cleared, append0x, writehexseparater, use_tabs;
-        int max_array, current_array, file_size;
-        unsigned char* mem_block;
+        uint64_t max_array, current_array, file_size;
+        uint8_t* mem_block;
     public:
         /*
             Adds a character to the hexstream.
@@ -31,21 +31,12 @@ namespace AraHaan {
         void AddCharacter(int character) {
             data_cleared = false;
             if (append0x) {
-                if (writehexseparater) {
-                    base_hexstream << "0x" << std::uppercase << std::setfill('0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << ", ";
-                } else {
-                    base_hexstream << "0x" << std::uppercase << std::setfill('0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
-                }
-            } else {
-                if (writehexseparater) {
-                    base_hexstream << std::uppercase << std::setfill('0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << ", ";
-                } else {
-                    base_hexstream << std::uppercase << std::setfill('0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
-                }
+                 base_hexstream << "0x";
+            }
+            base_hexstream << std::uppercase << std::setfill('0') <<
+                std::setw(2) << std::hex << static_cast<unsigned short>(character);
+            if (writehexseparater) {
+                base_hexstream << ", ";
             }
         }
         /*
@@ -211,8 +202,8 @@ namespace AraHaan {
     private:
         std::wstringstream base_whexstream;
         bool data_cleared, append0x, writehexseparater, use_tabs;
-        int max_array, current_array, file_size;
-        unsigned char* mem_block;
+        uint64_t max_array, current_array, file_size;
+        uint8_t* mem_block;
     public:
         /*
             Adds a character to the hexstream.
@@ -228,21 +219,12 @@ namespace AraHaan {
         void AddCharacter(int character) {
             data_cleared = false;
             if (append0x) {
-                if (writehexseparater) {
-                    base_whexstream << L"0x" << std::uppercase << std::setfill(L'0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << L", ";
-                } else {
-                    base_whexstream << L"0x" << std::uppercase << std::setfill(L'0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
-                }
-            } else {
-                if (writehexseparater) {
-                    base_whexstream << std::uppercase << std::setfill(L'0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << L", ";
-                } else {
-                    base_whexstream << std::uppercase << std::setfill(L'0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
-                }
+                 base_whexstream << L"0x";
+            }
+            base_whexstream << std::uppercase << std::setfill(L'0') <<
+                std::setw(2) << std::hex << static_cast<unsigned short>(character);
+            if (writehexseparater) {
+                base_whexstream << L", ";
             }
         }
         /*

@@ -22,6 +22,7 @@ public:
 	template<typename T>
 	void inline argreader(int argc, char* argv[], T &array1, T &array2) {
 		if (argc > 2) {
+			bool custvar_specified, nohead_specified, infile_specified, outfile_specified = false;
 			for (int i = 1; i < argc; ++i) {
 				tempstr = argv[i];
 				if (tempstr == array1[33]) {
@@ -74,6 +75,9 @@ public:
 	#endif
 				std::cout << array1[1] << std::endl;
 				std::cin.get();
+	#if !_WIN32
+				std::cout << array2[3] << "" << array2[4];
+	#endif
 			} else {
 				arg = argv[1];
 				if (arg == array1[32]) {
@@ -87,12 +91,12 @@ public:
 		}
 	}
 	libargparse(void) {
-		custvar_specified, nohead_specified, infile_specified, outfile_specified, use_cs_parse = false;
+		use_cs_parse = false;
 	}
 	~libargparse(void) {}
 private:
 	std::string fn, fn2, consolefilevar, consolefilevar2, custvar_value, Target_Type, tempstr, arg;
-	bool custvar_specified, nohead_specified, infile_specified, outfile_specified, use_cs_parse;
+	bool use_cs_parse;
 };
 
 #endif

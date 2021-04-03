@@ -11,14 +11,14 @@ jobs:
     - uses: actions/checkout@v3.3.0
     - name: Compiler check
       run: g++ --version
-    - name: Compile
+    - name: Compile and Install.
       run: >-
         cd MAC
 
-        make
+        make install
       env:
         CXX: g++
-        
+
     - name: Tests
       run: >-
         cd MAC
@@ -26,3 +26,11 @@ jobs:
         make test
       env:
         CXX: g++
+
+    - name: Uninstall and clean build.
+      run: >-
+        cd MAC
+
+        make uninstall
+
+        make clean

@@ -1,0 +1,3 @@
+#!/bin/bash
+cp -R /Volumes/bin2c/bin2c.app /Applications/bin2c.app
+ln -sv /Applications/bin2c.app/Contents/MacOS/bin2c /usr/local/bin/bin2c
