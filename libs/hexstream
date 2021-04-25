@@ -31,21 +31,12 @@ namespace AraHaan {
         void AddCharacter(int character) {
             data_cleared = false;
             if (append0x) {
-                if (writehexseparater) {
-                    base_hexstream << "0x" << std::uppercase << std::setfill('0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << ", ";
-                } else {
-                    base_hexstream << "0x" << std::uppercase << std::setfill('0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
-                }
-            } else {
-                if (writehexseparater) {
-                    base_hexstream << std::uppercase << std::setfill('0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << ", ";
-                } else {
-                    base_hexstream << std::uppercase << std::setfill('0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
-                }
+                 base_hexstream << "0x";
+            }
+            base_hexstream << std::uppercase << std::setfill('0') <<
+                std::setw(2) << std::hex << static_cast<unsigned short>(character);
+            if (writehexseparater) {
+                base_hexstream << ", ";
             }
         }
         /*
@@ -228,21 +219,12 @@ namespace AraHaan {
         void AddCharacter(int character) {
             data_cleared = false;
             if (append0x) {
-                if (writehexseparater) {
-                    base_whexstream << L"0x" << std::uppercase << std::setfill(L'0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << L", ";
-                } else {
-                    base_whexstream << L"0x" << std::uppercase << std::setfill(L'0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
-                }
-            } else {
-                if (writehexseparater) {
-                    base_whexstream << std::uppercase << std::setfill(L'0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character) << L", ";
-                } else {
-                    base_whexstream << std::uppercase << std::setfill(L'0') <<
-                        std::setw(2) << std::hex << static_cast<unsigned short>(character);
-                }
+                 base_whexstream << L"0x";
+            }
+            base_whexstream << std::uppercase << std::setfill(L'0') <<
+                std::setw(2) << std::hex << static_cast<unsigned short>(character);
+            if (writehexseparater) {
+                base_whexstream << L", ";
             }
         }
         /*

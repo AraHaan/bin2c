@@ -55,6 +55,7 @@
 Network Trash Folder
 Temporary Items
 .apdisk
+*.dmg
 
 # Windows
 # =========================
@@ -79,3 +80,4 @@ $RECYCLE.BIN/
 *.lnk
 
 squash.sh
+.idea/
