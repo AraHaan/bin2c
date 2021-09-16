@@ -21,7 +21,7 @@ public:
 			data = array[3];
 			data += _consolefilevar;
 			std::cout << array[6] << _consolefilevar2 << array[7];
-			file_size = static_cast<unsigned long>(std::streamoff(f.tellg()));
+			file_size = static_cast<uint64_t>(std::streamoff(f.tellg()));
 			if (!TargetCS) {
 				data += array[9] + CustomVariable + array[10] +
 					std::to_string(file_size) + array[11];
@@ -29,7 +29,7 @@ public:
 				data += array[12] + CustomVariable + array[13];
 			}
 			if (f.is_open()) {
-				memblock = new unsigned char[file_size];
+				memblock = new uint8_t[file_size];
 				f.seekg(0, std::ios::beg);
 				f.read(reinterpret_cast<char *>(memblock), file_size);
 				AraHaan::hexstream stream(true, true, 16, file_size, false, memblock);
@@ -80,10 +80,10 @@ public:
 	}
 	~lib2hex(void) {}
 private:
-	unsigned long n;
-	unsigned long file_size;
+	uint64_t n;
+	uint64_t file_size;
 	std::string data;
-	unsigned char* memblock;
+	uint8_t* memblock;
 	std::string filedata;
 };
 

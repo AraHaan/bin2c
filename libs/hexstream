@@ -14,8 +14,8 @@ namespace AraHaan {
     private:
         std::stringstream base_hexstream;
         bool data_cleared, append0x, writehexseparater, use_tabs;
-        int max_array, current_array, file_size;
-        unsigned char* mem_block;
+        uint64_t max_array, current_array, file_size;
+        uint8_t* mem_block;
     public:
         /*
             Adds a character to the hexstream.
@@ -202,8 +202,8 @@ namespace AraHaan {
     private:
         std::wstringstream base_whexstream;
         bool data_cleared, append0x, writehexseparater, use_tabs;
-        int max_array, current_array, file_size;
-        unsigned char* mem_block;
+        uint64_t max_array, current_array, file_size;
+        uint8_t* mem_block;
     public:
         /*
             Adds a character to the hexstream.
