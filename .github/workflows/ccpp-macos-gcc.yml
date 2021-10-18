@@ -8,7 +8,7 @@ jobs:
     runs-on: macos-latest
     
     steps:
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v2.3.5
     - name: Compiler check
       run: g++ --version
     - name: Compile and Install.
